@@ -1,0 +1,23 @@
+{
+  "name": "opensearch-orm",
+  "version": "0.0.0",
+  "description": "TypeScript ORM for OpenSearch",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akedia23/opensearch-orm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akedia23/opensearch-orm/issues"
+  },
+  "homepage": "https://github.com/akedia23/opensearch-orm#readme",
+  "dependencies": {
+    "typescript": "^5.2.2"
+  }
+}
