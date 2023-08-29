@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/akedia23/opensearch-orm#readme",
   "dependencies": {
+    "@opensearch-project/opensearch": "^2.3.1",
     "typescript": "^5.2.2"
   }
 }
