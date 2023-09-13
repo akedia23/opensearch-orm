@@ -1,25 +1,10 @@
-import { Document } from "../document";
+import 'reflect-metadata';
+import { DocumentModel } from '../document-model';
+// Docoument Model decorator
 // document model -> perform functions (match, match all)
-function documentModel(index: string): ClassAnnotation {
-  return constructor => {
-    constructor.prototype[index] = index;
+export function documentModel () {
+  return (target: Function) => {
+    // Store metadata or perform validation
+    Reflect.defineMetadata('documentModel', true, target.prototype);
   };
 }
-
-export interface ClassAnnotation {
-  (target: Document<any>): void;
-}
-
-@documentModel('hello')
-class Test {
-
-}
-
-const object = new Test();
-console.log(object['index']);
-
-// functions
-// DocumentModel.query(queryTypes[]: Match, MultiMatch, MatchPhrase extend QueryType) or search()
-// to keep terminology
-// DocumentModel.put() or index() to keep terminology
-// need to add ^(boost) to fields

@@ -1,20 +1,19 @@
 {
   "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "module": "CommonJS",
-    "target": "ES2018",
     "noImplicitAny": false,
     "preserveConstEnums": true,
-    // "outDir": "./build",
+    "outDir": "./dist",
     "sourceMap": true,
     "skipLibCheck": true,
+    "typeRoots": ["./node_modules/@types"],
     "resolveJsonModule": true
   },
-  "include": [
-    "src/**/*"
-  ],
+  "include": ["src"],
   "exclude": [
     "*/node_modules/**/*",
     "tst",
