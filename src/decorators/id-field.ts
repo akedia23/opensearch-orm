@@ -1,10 +1,10 @@
-import 'reflect-metadata';
+// import 'reflect-metadata';
 
-export function index() {
-  return (target: any, propertyKey: string) => {
-    const index = Reflect.getOwnMetadata('id', target);
-    if (!index) {
-      Reflect.defineMetadata('id', propertyKey, target)
-    }
-  };
-}
+// export function id() {
+//   return (target: any, propertyKey: string) => {
+//     const id = Reflect.getOwnMetadata('id', target);
+//     if (!id) {
+//       Reflect.defineMetadata('id', propertyKey, target)
+//     }
+//   };
+// }

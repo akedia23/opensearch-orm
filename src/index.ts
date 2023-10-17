@@ -3,15 +3,7 @@
 
 import { DataMapper } from '@aws/dynamodb-data-mapper';
 import DynamoDB = require('aws-sdk/clients/dynamodb');
-import { DocumentModel } from './document-model';
 import { index } from './decorators/index-field';
-
-import {
-    attribute,
-    hashKey,
-    rangeKey,
-    table,
-} from '@aws/dynamodb-data-mapper-annotations';
 import { field } from './decorators/field';
 import { Mapper } from './mapper';
 import { documentModel } from './decorators/document-model';

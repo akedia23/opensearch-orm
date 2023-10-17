@@ -1,8 +1,5 @@
 import 'reflect-metadata';
 import { Client } from '@opensearch-project/opensearch';
-import { DocumentModel } from './document-model';
-import { AwsSigv4Signer } from '@opensearch-project/opensearch/aws';
-import { TransportRequestOptions } from '@opensearch-project/opensearch/lib/Transport';
 import { IndexSetttings, PutOptions } from './types';
 
 export class Mapper {
