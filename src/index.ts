@@ -1,3 +1,6 @@
+// Temporary test file
+
+
 import { DataMapper } from '@aws/dynamodb-data-mapper';
 import DynamoDB = require('aws-sdk/clients/dynamodb');
 import { DocumentModel } from './document-model';

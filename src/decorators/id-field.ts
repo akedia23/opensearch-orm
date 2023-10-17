@@ -2,9 +2,9 @@ import 'reflect-metadata';
 
 export function index() {
   return (target: any, propertyKey: string) => {
-    const index = Reflect.getOwnMetadata('index', target);
+    const index = Reflect.getOwnMetadata('id', target);
     if (!index) {
-      Reflect.defineMetadata('index', propertyKey, target)
+      Reflect.defineMetadata('id', propertyKey, target)
     }
   };
 }
