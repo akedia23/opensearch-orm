@@ -1,10 +1,12 @@
-// import 'reflect-metadata';
+import 'reflect-metadata';
 
-// export function id() {
-//   return (target: any, propertyKey: string) => {
-//     const id = Reflect.getOwnMetadata('id', target);
-//     if (!id) {
-//       Reflect.defineMetadata('id', propertyKey, target)
-//     }
-//   };
-// }
+export const ID_METADATA_KEY = Symbol('id');
+
+export function id () {
+  return (target: any, propertyKey: string) => {
+    const id = Reflect.getOwnMetadata(ID_METADATA_KEY, target);
+    if (!id) {
+      Reflect.defineMetadata(ID_METADATA_KEY, propertyKey, target);
+    }
+  };
+}

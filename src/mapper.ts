@@ -1,6 +1,9 @@
 import 'reflect-metadata';
 import { Client } from '@opensearch-project/opensearch';
 import { IndexSetttings, PutOptions } from './types';
+import { FIELD_METADATA_KEY } from './decorators/field';
+import { ID_METADATA_KEY } from './decorators/id-field';
+import { INDEX_METADATA_KEY } from './decorators/index-field';
 
 export class Mapper {
   client: Client;
@@ -13,7 +16,7 @@ export class Mapper {
   // TODO: fix any typing
   async createIndex (schema: any, settings: IndexSetttings) {
     try {
-      await this.client.indices.create()
+      await this.client.indices.create();
     } catch (e) {
       throw new Error(`Failed to create index ${schema.index}`, { cause: e })
     }
@@ -39,12 +42,14 @@ export class Mapper {
 
   marshall (schema: any, options?: PutOptions) {
     const body: Record<string, any> = {};
-    const fields: string[] = Reflect.getMetadata('fields', schema);
+    const fields: string[] = Reflect.getMetadata(FIELD_METADATA_KEY, schema);
     fields.forEach((field) => {
       body[field] = schema[field];
     });
-    const id: string = Reflect.getMetadata('id', schema);
-    const index: string = Reflect.getMetadata('index', schema);
+    const id: string = Reflect.getMetadata(ID_METADATA_KEY, schema);
+    const indexProp: string = Reflect.getMetadata(INDEX_METADATA_KEY, schema);
+    const index = schema[indexProp];
+
     const document = {
       index,
       ...(id && { id }),
@@ -54,4 +59,7 @@ export class Mapper {
 
     return document;
   }
+
+  unmarshall
+
 }

@@ -1,10 +1,12 @@
 import 'reflect-metadata';
 
-export function index() {
+export const INDEX_METADATA_KEY = Symbol('index');
+
+export function index () {
   return (target: any, propertyKey: string) => {
-    const index = Reflect.getOwnMetadata('index', target);
+    const index = Reflect.getOwnMetadata(INDEX_METADATA_KEY, target);
     if (!index) {
-      Reflect.defineMetadata('index', propertyKey, target)
+      Reflect.defineMetadata(INDEX_METADATA_KEY, propertyKey, target)
     }
   };
 }
